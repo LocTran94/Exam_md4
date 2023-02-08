@@ -15,6 +15,8 @@ xeRouter.get('/timHang/:idHang',xeController.findHang);
 xeRouter.get('/tangDan',xeController.find);
 xeRouter.get('/giamDan',xeController.find1);
 xeRouter.get('/nhieuxe',xeController.findmaxxe);
+xeRouter.get('/tenXe/:tenXe',xeController.findName);
+xeRouter.get('/timtheokhoang',xeController.find2);
 
 
 

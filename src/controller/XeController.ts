@@ -48,7 +48,7 @@ class XeController {
         }
     }
 
-    getXe = async (req: Request, res)=>{
+    getXe = async (req: Request, res) => {
         try {
             let id = req.params.idXe;
             let response = await this.xeServices.getXe1(id);
@@ -59,7 +59,7 @@ class XeController {
         }
     }
 
-    findName = async (req: Request, res)=>{
+    findName = async (req: Request, res) => {
 
         try {
             let name = req.params.tenXe;
@@ -69,9 +69,9 @@ class XeController {
         } catch (e) {
             res.status(500).json(e.message)
         }
-}
+    }
 
-findHang = async (req: Request, res)=>{
+    findHang = async (req: Request, res) => {
 
         try {
             let id = req.params.idHang;
@@ -81,36 +81,43 @@ findHang = async (req: Request, res)=>{
         } catch (e) {
             res.status(500).json(e.message)
         }
-}
-
-
-find = async (req: Request, res)=>{
-    try {
-        let response = await this.xeServices.findmax();
-        res.status(200).json(response)
-    } catch (e) {
-        res.status(500).json(e.message)
     }
-}
 
 
-find1 = async (req: Request, res)=>{
-    try {
-        let response = await this.xeServices.findmin();
-        res.status(200).json(response)
-    } catch (e) {
-        res.status(500).json(e.message)
+    find = async (req: Request, res) => {
+        try {
+            let response = await this.xeServices.findmax();
+            res.status(200).json(response)
+        } catch (e) {
+            res.status(500).json(e.message)
+        }
     }
-}
 
-findmaxxe = async (req: Request, res)=>{
-    try {
-        let response = await this.xeServices.findmaxquantity();
-        res.status(200).json(response)
-    } catch (e) {
-        res.status(500).json(e.message)
+
+    find1 = async (req: Request, res) => {
+        try {
+            let response = await this.xeServices.findmin();
+            res.status(200).json(response)
+        } catch (e) {
+            res.status(500).json(e.message)
+        }
     }
-}
+
+    findmaxxe = async (req: Request, res) => {
+        try {
+            let response = await this.xeServices.findmaxquantity();
+            res.status(200).json(response)
+        } catch (e) {
+            res.status(500).json(e.message)
+        }
+    }
+
+
+    find2 = async (req, res) => {
+
+        let xe = await this.xeServices.getXe4(req.body[0].giaXe1, req.body[0].giaXe2)
+        res.status(201).json(xe)
+    }
 
 }
 

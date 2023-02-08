@@ -94,6 +94,15 @@ class XeServices {
 
 
 
+    getXe4 = async (gia1, gia2) => {
+        let sql = `select * from dongco.xe x join dongco.hang h on h.idHang = x.idHang where x.giaXe > ${gia1} and x.giaXe <  ${gia2}`
+    let xes = await this.xeRepository.query(sql);
+        return xes;
+
+    }
+
+
+
 
 }
 
